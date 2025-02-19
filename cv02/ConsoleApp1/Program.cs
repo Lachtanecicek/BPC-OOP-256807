@@ -5,5 +5,5 @@ TestComplex.Test(new Complex(-2.0, -1.0), - new Complex(2.0, 1.0), "operator una
 
 Console.WriteLine("Operator ==: {0}", new Complex(2.0, 1.0) == new Complex(2.0, 1.0));
 
-Console.WriteLine("Modul: {0}", new Complex(2.0, 1.0).Modul());
-Console.WriteLine("Modul: {0}", new Complex(2.0, 1.0).Argument());
+Console.WriteLine("Modul: {0}", new Complex(2.0, 2.0).Modul());
+Console.WriteLine("Modul: {0}", new Complex(2.0, 2.0).Argument());
