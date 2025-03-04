@@ -20,7 +20,7 @@ namespace cv04
 
         private string[] ExtractWords(string text)
         {
-            return Regex.Split(text, "[^\\wěščřžýáíéúůóďťň]+", RegexOptions.IgnoreCase)
+            return Regex.Split(text, "[^\\w]+", RegexOptions.IgnoreCase)
                         .Where(w => !string.IsNullOrEmpty(w))
                         .ToArray();
         }
@@ -46,14 +46,12 @@ namespace cv04
             return words.Where(w => w.Length == minLength).Distinct().ToArray();
         }
 
-        public string[] MostFrequentWords()
+        public string MostFrequentWord()
         {
             return words.GroupBy(w => w)
-                        .Where(g => g.Count() > 1) // Filtruje jen slova s více výskyty
                         .OrderByDescending(g => g.Count())
-                        .Take(5)
                         .Select(g => g.Key)
-                        .ToArray();
+                        .FirstOrDefault() ?? "Žádné slovo";
         }
 
         public string[] SortedWords() => words.Distinct().OrderBy(w => w).ToArray();

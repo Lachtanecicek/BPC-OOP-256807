@@ -18,7 +18,7 @@ class Program
         Console.WriteLine($"Pocet vet: {stats.SentenceCount()}");
         Console.WriteLine($"Nejdelsi slova: {string.Join(", ", stats.LongestWords())}");
         Console.WriteLine($"Nejkratsi slova: {string.Join(", ", stats.ShortestWords())}");
-        Console.WriteLine($"Nejcetnejsi slova: {string.Join(", ", stats.MostFrequentWords())}");
+        Console.WriteLine($"Nejčetnější slovo: {stats.MostFrequentWord()}");
         Console.WriteLine($"Setridena slova: {string.Join(", ", stats.SortedWords())}");
     }
 }
