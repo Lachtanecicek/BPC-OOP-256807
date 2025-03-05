@@ -13,6 +13,8 @@ class Program
 
         StringStatistics stats = new StringStatistics(testovaciText);
 
+        Console.WriteLine(testovaciText);
+        Console.WriteLine();
         Console.WriteLine($"Pocet slov: {stats.WordCount()}");
         Console.WriteLine($"Pocet radku: {stats.LineCount()}");
         Console.WriteLine($"Pocet vet: {stats.SentenceCount()}");
