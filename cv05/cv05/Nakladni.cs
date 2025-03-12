@@ -8,14 +8,14 @@ namespace cv05
 {
     public class Nakladni : Auto
     {
-        public double MaxNaklad { get; }
+        public double MaxNaklad { get; protected set; }
         public double PrepravovanyNaklad { get; private set; }
 
         public Nakladni(double velikostNadrze, TypPaliva palivo, double maxNaklad)
             : base(velikostNadrze, palivo)
         {
             MaxNaklad = maxNaklad;
-            PrepravovanyNaklad = 0;
+            PrepravovanyNaklad = 0.0;
         }
 
         public void NastavPrepravovanyNaklad(double naklad)

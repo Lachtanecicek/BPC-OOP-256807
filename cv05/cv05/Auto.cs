@@ -10,16 +10,16 @@ namespace cv05
     {
         public enum TypPaliva { Benzin, Nafta }
 
-        public double VelikostNadrze { get; }
+        public double VelikostNadrze { get; protected set; }
         public double StavNadrze { get; private set; }
-        public TypPaliva Palivo { get; }
+        public TypPaliva Palivo { get; protected set; }
         public Autoradio Radio { get; }
 
         protected Auto(double velikostNadrze, TypPaliva palivo)
         {
             VelikostNadrze = velikostNadrze;
             Palivo = palivo;
-            StavNadrze = 0;
+            StavNadrze = 0.0;
             Radio = new Autoradio();
         }
 

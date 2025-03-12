@@ -8,7 +8,7 @@ namespace cv05
 {
     public class Osobni : Auto
     {
-        public int MaxOsob { get; }
+        public int MaxOsob { get; protected set; }
         public int PrepravovaneOsoby { get; private set; }
 
         public Osobni(double velikostNadrze, TypPaliva palivo, int maxOsob)
