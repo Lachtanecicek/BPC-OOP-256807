@@ -8,9 +8,19 @@ class Program
         int[] cisla = { 1, 3, 5, 7, 9 };
         string[] slova = { "jablko", "hruška", "banán", "rododendron" };
         Console.WriteLine($"Nejvetsi číslo: {Extremy.Nejvetsi(cisla)}");
-        Console.WriteLine($"Nejvetsi číslo: {Extremy.Nejmensi(cisla)}");
+        Console.WriteLine($"Nejvetsi číslo: {Extremy.Nejmensi(cisla)}\n");
         Console.WriteLine($"Nejmensi slovo: {Extremy.Nejvetsi(slova)}");
         Console.WriteLine($"Nejmensi slovo: {Extremy.Nejmensi(slova)}\n");
+
+        var kruhy = new Kruh[]
+        {
+            new Kruh(2),
+            new Kruh(5),
+            new Kruh(4)
+        };
+
+        Console.WriteLine($"Nejvetsi kruh: {Extremy.Nejvetsi(kruhy)}");
+        Console.WriteLine($"Nejmensi kruh: {Extremy.Nejmensi(kruhy)}\n");
 
         Objekt2D[] objekty = {
             new Kruh(5),
