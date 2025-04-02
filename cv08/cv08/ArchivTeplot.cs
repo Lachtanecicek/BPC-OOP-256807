@@ -32,7 +32,7 @@ namespace cv08
             using StreamWriter writer = new(filePath);
             foreach (var entry in _archiv)
             {
-                writer.WriteLine($"{entry.Key}: {string.Join("; ", entry.Value.MesicniTeploty.Select(t => t.ToString("F1")))}");
+                writer.WriteLine($"{entry.Key}: {string.Join("; ", entry.Value.MesicniTeploty.Select(t => t.ToString("0.0")))}");
             }
         }
 
@@ -67,10 +67,11 @@ namespace cv08
 
         public void TiskPrumernychMesicnichTeplot(int mesic)
         {
-            Console.WriteLine($"Teploty pro měsíc {mesic} v jednotlivých letech:");
-            foreach (var entry in _archiv)
+            Console.Write($"Průměrné teploty v měsíci za všechny roky:");
+            for (int i = 0; i < 12; i++)
             {
-                Console.WriteLine($"{entry.Key}: {entry.Value.MesicniTeploty[mesic - 1]:F2}");
+                double prumer = _archiv.Values.Average(rt => rt.MesicniTeploty[i]);
+                Console.Write($"{prumer,6:F1}");
             }
         }
     }

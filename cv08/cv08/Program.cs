@@ -21,7 +21,7 @@ class Program
 
         archiv.Kalibrace(kalibracnikonstanta);
         archiv.Save("teploty_kalibrovane.txt");
-        Console.WriteLine($"\nKalibrované teploty o {kalibracnikonstanta}°:");
+        Console.WriteLine($"\n\nKalibrované teploty o {kalibracnikonstanta}°:");
         archiv.TiskTeplot();
     }
 }
