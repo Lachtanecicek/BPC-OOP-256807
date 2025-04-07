@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cv09"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="450">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -13,14 +13,14 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Label x:Name="pamet" FontSize="14" HorizontalAlignment="Right" Margin="5"/>
-        <Label x:Name="display" FontSize="28" HorizontalAlignment="Right" Margin="5" Grid.Row="1"/>
+        <Label x:Name="pamet" FontSize="10" HorizontalAlignment="Right" Margin="5"/>
+        <Label x:Name="display" FontSize="40" HorizontalAlignment="Right" Margin="5" Grid.Row="1"/>
 
         <UniformGrid Grid.Row="2" Columns="4">
             
             <UniformGrid.Resources>
                 <Style TargetType="Button">
-                    <Setter Property="FontSize" Value="18"/>
+                    <Setter Property="FontSize" Value="20"/>
                     <Setter Property="FontWeight" Value="Bold"/>
                 </Style>
             </UniformGrid.Resources>
