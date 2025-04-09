@@ -96,7 +96,7 @@ namespace cv09
                     Spocitej();
                     break;
 
-                case "M+":
+                case "M":
                     double.TryParse(_display, out _pametHodnota);
                     _pamet = "M";
                     break;

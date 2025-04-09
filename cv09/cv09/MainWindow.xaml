@@ -27,7 +27,7 @@
             
             <Button Content="MC" Click="Button_Click"/>
             <Button Content="MR" Click="Button_Click"/>
-            <Button Content="M+" Click="Button_Click"/>
+            <Button Content="M" Click="Button_Click"/>
             <Button Content="C" Click="Button_Click"/>
 
             <Button Content="7" Click="Button_Click"/>
@@ -50,7 +50,7 @@
             <Button Content="," Click="Button_Click"/>
             <Button Content="+" Click="Button_Click"/>
 
-            <Button Content="=" Click="Button_Click" Grid.ColumnSpan="4"/>
+            <Button Content="=" Click="Button_Click" Grid.ColumnSpan="2" Margin="0,0,-110,0"/>
         </UniformGrid>
     </Grid>
 </Window>
