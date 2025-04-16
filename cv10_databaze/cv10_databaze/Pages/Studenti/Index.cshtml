@@ -1,0 +1,96 @@
+﻿@page
+@model cv10_databaze.Pages.Studenti.IndexModel
+@{
+    ViewData["Title"] = "Studenti a výuka";
+}
+
+<h1>Studenti a jejich předměty</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Jméno</th>
+            <th>Příjmení</th>
+            <th>Datum narození</th>
+            <th>Zapsané předměty</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model.Studenti)
+        {
+            <tr>
+                <td>@student.Jmeno</td>
+                <td>@student.Prijmeni</td>
+                <td>@student.Datum_Narozeni.ToShortDateString()</td>
+                <td>
+                    @if (student.Zapsani?.Any() == true)
+                    {
+                        <ul>
+                            @foreach (var z in student.Zapsani)
+                            {
+                                <li>@z.Predmet?.Nazev (@z.Zkratka_Predmetu)</li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <em>Žádné</em>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Počet studentů podle příjmení</h2>
+<ul>
+    @foreach (var p in Model.PrijmeniStatistika)
+    {
+        <li>@p.Key: @p.Value</li>
+    }
+</ul>
+
+<h2>Předměty s méně než 3 studenty</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Zkratka</th>
+            <th>Název</th>
+            <th>Počet studentů</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.MaloZapsanych)
+        {
+            <tr>
+                <td>@p.Zkratka</td>
+                <td>@p.Nazev</td>
+                <td>@p.PocetStudentu</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Statistiky hodnocení</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Předmět</th>
+            <th>Nejlepší</th>
+            <th>Nejhorší</th>
+            <th>Průměr</th>
+            <th>Počet hodnocení</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var h in Model.HodnoceniStatistika)
+        {
+            <tr>
+                <td>@h.Nazev (@h.Zkratka)</td>
+                <td>@h.Max</td>
+                <td>@h.Min</td>
+                <td>@Math.Round(h.Avg, 2)</td>
+                <td>@h.Count</td>
+            </tr>
+        }
+    </tbody>
+</table>

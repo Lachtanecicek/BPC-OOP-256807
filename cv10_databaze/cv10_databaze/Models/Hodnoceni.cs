@@ -19,7 +19,7 @@ namespace cv10_databaze.Models
         [Required]
         public DateTime Datum_Hodnoceni { get; set; }
 
-        [Range(0, 100)]
-        public int Známka { get; set; }
+        [Required]
+        public int Znamka { get; set; }
     }
 }

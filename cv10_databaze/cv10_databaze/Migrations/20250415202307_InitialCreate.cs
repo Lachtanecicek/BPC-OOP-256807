@@ -39,6 +39,30 @@ namespace cv10_databaze.Migrations
                 });
 
             migrationBuilder.CreateTable(
+               name: "Zapsani",
+               columns: table => new
+               {
+                   ID_Studenta = table.Column<int>(type: "int", nullable: false),
+                   Zkratka_Predmetu = table.Column<string>(type: "nvarchar(10)", nullable: false)
+               },
+               constraints: table =>
+               {
+                   table.PrimaryKey("PK_Zapsani", x => new { x.ID_Studenta, x.Zkratka_Predmetu });
+                   table.ForeignKey(
+                       name: "FK_Zapsani_Predmety_Zkratka_Predmetu",
+                       column: x => x.Zkratka_Predmetu,
+                       principalTable: "Predmety",
+                       principalColumn: "Zkratka",
+                       onDelete: ReferentialAction.Cascade);
+                   table.ForeignKey(
+                       name: "FK_Zapsani_Studenti_ID_Studenta",
+                       column: x => x.ID_Studenta,
+                       principalTable: "Studenti",
+                       principalColumn: "ID_Studenta",
+                       onDelete: ReferentialAction.Cascade);
+               });
+
+            migrationBuilder.CreateTable(
                 name: "Hodnoceni",
                 columns: table => new
                 {
@@ -49,7 +73,7 @@ namespace cv10_databaze.Migrations
                     Zkratka_Predmetu = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PredmetZkratka = table.Column<string>(type: "nvarchar(10)", nullable: false),
                     Datum_Hodnoceni = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Známka = table.Column<int>(type: "int", nullable: false)
+                    Znamka = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -68,29 +92,6 @@ namespace cv10_databaze.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Zapsani",
-                columns: table => new
-                {
-                    ID_Studenta = table.Column<int>(type: "int", nullable: false),
-                    Zkratka_Predmetu = table.Column<string>(type: "nvarchar(10)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Zapsani", x => new { x.ID_Studenta, x.Zkratka_Predmetu });
-                    table.ForeignKey(
-                        name: "FK_Zapsani_Predmety_Zkratka_Predmetu",
-                        column: x => x.Zkratka_Predmetu,
-                        principalTable: "Predmety",
-                        principalColumn: "Zkratka",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Zapsani_Studenti_ID_Studenta",
-                        column: x => x.ID_Studenta,
-                        principalTable: "Studenti",
-                        principalColumn: "ID_Studenta",
-                        onDelete: ReferentialAction.Cascade);
-                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Hodnoceni_PredmetZkratka",
