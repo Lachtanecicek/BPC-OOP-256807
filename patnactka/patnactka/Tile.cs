@@ -8,7 +8,7 @@ namespace patnactka
 {
     public class Tile
     {
-        public int Value { get; set; } // 1–15, 0 = prázdné
+        public int Value { get; set; }
         public int Row { get; set; }
         public int Column { get; set; }
 

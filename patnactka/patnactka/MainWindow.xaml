@@ -5,33 +5,77 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:patnactka"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="500">
-    <Grid Name="GameGrid" Margin="10">
-        <UniformGrid>
-            <UniformGrid.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="FontSize" Value="30"/>
-                    <Setter Property="FontWeight" Value="Bold"/>
-                </Style>
-            </UniformGrid.Resources>
+        Title="Patnáctka" Height="600" Width="500">
 
-            <Button Content="1" Click="Tile_Click"/>
-            <Button Content="2" Click="Tile_Click"/>
-            <Button Content="3" Click="Tile_Click"/>
-            <Button Content="4" Click="Tile_Click"/>
-            <Button Content="5" Click="Tile_Click"/>
-            <Button Content="6" Click="Tile_Click"/>
-            <Button Content="7" Click="Tile_Click"/>
-            <Button Content="8" Click="Tile_Click"/>
-            <Button Content="9" Click="Tile_Click"/>
-            <Button Content="10" Click="Tile_Click"/>
-            <Button Content="11" Click="Tile_Click"/>
-            <Button Content="12" Click="Tile_Click"/>
-            <Button Content="13" Click="Tile_Click"/>
-            <Button Content="14" Click="Tile_Click"/>
-            <Button Content="15" Click="Tile_Click"/>
-            <Button Content=" " Visibility="Hidden"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Menu -->
+            <RowDefinition Height="Auto"/>
+            <!-- Timer + Pause button -->
+            <RowDefinition Height="*"/>
+            <!-- Game grid -->
+        </Grid.RowDefinitions>
 
-        </UniformGrid>
+        <!-- Menu -->
+        <Menu Grid.Row="0">
+            <MenuItem Header="_Hra">
+                <MenuItem Header="Nová hra" Click="NewGame_Click"/>
+                <MenuItem Header="Výsledky" Click="ShowScores_Click"/>
+                <Separator />
+                <MenuItem Header="Konec" Click="Exit_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- Timer + Pause button -->
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="TimerText" 
+                       FontSize="20" 
+                       VerticalAlignment="Center"
+                       Text="Čas: 00:00.00"
+                       Grid.Column="0"/>
+
+            <Button x:Name="PauseButton" 
+                    Content="Pauza" 
+                    Width="100"
+                    Margin="10,0,0,0"
+                    Click="PauseButton_Click"
+                    Grid.Column="1"/>
+        </Grid>
+
+        <!-- Game Grid -->
+        <Grid Name="GameGrid" Grid.Row="2" Margin="10">
+            <UniformGrid>
+                <UniformGrid.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="FontSize" Value="30"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </Style>
+                </UniformGrid.Resources>
+
+                <!-- Tvé tlačítka s čísly -->
+                <Button Content="1" Click="Tile_Click"/>
+                <Button Content="2" Click="Tile_Click"/>
+                <Button Content="3" Click="Tile_Click"/>
+                <Button Content="4" Click="Tile_Click"/>
+                <Button Content="5" Click="Tile_Click"/>
+                <Button Content="6" Click="Tile_Click"/>
+                <Button Content="7" Click="Tile_Click"/>
+                <Button Content="8" Click="Tile_Click"/>
+                <Button Content="9" Click="Tile_Click"/>
+                <Button Content="10" Click="Tile_Click"/>
+                <Button Content="11" Click="Tile_Click"/>
+                <Button Content="12" Click="Tile_Click"/>
+                <Button Content="13" Click="Tile_Click"/>
+                <Button Content="14" Click="Tile_Click"/>
+                <Button Content="15" Click="Tile_Click"/>
+                <Button Content=" " Visibility="Hidden"/>
+            </UniformGrid>
+        </Grid>
     </Grid>
 </Window>

@@ -1,0 +1,38 @@
+﻿<Window x:Class="CalcWpfClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WPF Kalkulačka" Height="250" Width="400">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <Label Content="Operand 1:" Width="70"/>
+            <TextBox Name="Operand1TextBox" Width="200"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Grid.Row="1">
+            <Label Content="Operace:" Width="70"/>
+            <ComboBox Name="OperationComboBox" Width="200">
+                <ComboBoxItem Content="plus"/>
+                <ComboBoxItem Content="minus"/>
+                <ComboBoxItem Content="krat"/>
+                <ComboBoxItem Content="deleno"/>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Grid.Row="2">
+            <Label Content="Operand 2:" Width="70"/>
+            <TextBox Name="Operand2TextBox" Width="200"/>
+        </StackPanel>
+
+        <Button Content="Spočítat" Grid.Row="3" Height="30" Width="100" HorizontalAlignment="Left" Click="CalculateButton_Click"/>
+
+        <TextBlock Name="ResultTextBlock" Grid.Row="4" Margin="0,10,0,0" FontSize="16"/>
+    </Grid>
+</Window>
